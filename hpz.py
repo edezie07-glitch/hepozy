@@ -1,8 +1,4 @@
-"""
-HPZ MESSENGER - COMPLETE BACKEND SYSTEM
-Telegram-Style Real-Time Chat
-PRODUCTION READY - DEPLOYED ON RENDER
-"""
+
 
 import os
 import json
@@ -21,7 +17,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from sqlalchemy import or_, and_, func, desc
 from sqlalchemy.orm import joinedload
-
+import os
+import sys
+print("Current directory:", os.getcwd())
+print("Files in directory:", os.listdir('.'))
+if os.path.exists('runtime.txt'):
+    with open('runtime.txt', 'r') as f:
+        print("runtime.txt content:", f.read().strip())
+print(f"Python version: {sys.version}")
 # ========== INITIALIZE APP ==========
 app = Flask(__name__)
 
@@ -1368,4 +1371,5 @@ if __name__ == '__main__':
         host='0.0.0.0',
         port=port,
         allow_unsafe_werkzeug=True
+
     )
